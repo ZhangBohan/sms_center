@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>宠物短信通知助手</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>姓名</th>
+      <th>电话</th>
+      <th>备注</th>
+      <th>通知时间</th>
+      <th>状态</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sms_messages.each do |sms_message| %>
+      <tr>
+        <td><%= sms_message.name %></td>
+        <td><%= sms_message.phone %></td>
+        <td><%= sms_message.description %></td>
+        <td><%= sms_message.effected_at %></td>
+        <td>
+          <%if sms_message.status %>
+              <i class="fa fa-check"></i>
+          <%else %>
+              <i class="fa fa-clock-o"></i>
+          <% end %>
+        </td>
+        <td><%= link_to '编辑', edit_sms_message_path(sms_message) %></td>
+        <td><%= link_to '删除', sms_message, method: :delete, data: { confirm: '你确定删除吗？' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新提醒', new_sms_message_path %>

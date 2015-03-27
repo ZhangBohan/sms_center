@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sms_message.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @sms_message.phone %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @sms_message.description %>
+</p>
+
+<p>
+  <strong>Effected at:</strong>
+  <%= @sms_message.effected_at %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @sms_message.status %>
+</p>
+
+<%= link_to 'Edit', edit_sms_message_path(@sms_message) %> |
+<%= link_to 'Back', sms_messages_path %>

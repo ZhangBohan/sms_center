@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  phone: MyString
+  description: MyString
+  effected_at: 2015-03-26 22:06:28
+  status: false
+
+two:
+  name: MyString
+  phone: MyString
+  description: MyString
+  effected_at: 2015-03-26 22:06:28
+  status: false

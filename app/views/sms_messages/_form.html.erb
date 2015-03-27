@@ -1,0 +1,33 @@
+<%= form_for(@sms_message) do |f| %>
+  <% if @sms_message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sms_message.errors.count, "error") %> prohibited this sms_message from being saved:</h2>
+
+      <ul>
+      <% @sms_message.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    姓名<br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    电话<br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    备注<br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    提醒时间<br>
+    <%= f.date_select :effected_at %>
+  </div>
+  <div class="actions">
+    <%= f.submit '增加' %>
+  </div>
+<% end %>
