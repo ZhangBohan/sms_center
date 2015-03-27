@@ -2,6 +2,8 @@ require 'uri'
 require 'net/http'
 
 class SmsMessagesController < ApplicationController
+  http_basic_authenticate_with name: "scy", password: "scy123", except: [:schedule]
+
   before_action :set_sms_message, only: [:show, :edit, :update, :destroy]
 
   # GET /sms_messages
