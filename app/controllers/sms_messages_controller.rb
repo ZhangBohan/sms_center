@@ -56,6 +56,7 @@ class SmsMessagesController < ApplicationController
 
   def schedule
     today = Time.new.at_end_of_day
+    logger.info "start schedule #{today}"
     puts today
     SmsMessage.all.each { |sms_message|
       puts sms_message
@@ -66,6 +67,7 @@ class SmsMessagesController < ApplicationController
       end
     }
 
+    logger.info "end schedule #{today}"
     respond_to do |format|
       format.json { head :no_content }
     end
@@ -98,8 +100,8 @@ class SmsMessagesController < ApplicationController
                 'mobile' => mobile,
                 'text' => text
       }
-      puts params
+      logger.debug "send message #{params}"
       x = Net::HTTP.post_form(URI.parse('http://yunpian.com/v1/sms/send.json'), params)
-      puts x.body
+      logger.debug "message result #{x}"
     end
 end
