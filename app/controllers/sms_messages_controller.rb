@@ -9,7 +9,7 @@ class SmsMessagesController < ApplicationController
   # GET /sms_messages
   # GET /sms_messages.json
   def index
-    @sms_messages = SmsMessage.all
+    @sms_messages = SmsMessage.order(id: :desc)
   end
 
   # GET /sms_messages/1
