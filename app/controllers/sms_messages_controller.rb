@@ -99,7 +99,7 @@ class SmsMessagesController < ApplicationController
                 'text' => text
       }
       puts params
-      # x = Net::HTTP.post_form(URI.parse('http://yunpian.com/v1/sms/send.json'), params)
-      # puts x.body
+      x = Net::HTTP.post_form(URI.parse('http://yunpian.com/v1/sms/send.json'), params)
+      puts x.body
     end
 end
