@@ -104,6 +104,6 @@ class SmsMessagesController < ApplicationController
       }
       logger.debug "send message #{params}"
       x = Net::HTTP.post_form(URI.parse('http://yunpian.com/v1/sms/send.json'), params)
-      logger.debug "message result #{x}"
+      logger.debug x
     end
 end
